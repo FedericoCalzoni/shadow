@@ -286,7 +286,9 @@ static int new_password (const struct passwd *pw)
 
 	warned = false;
 	for (i = getdef_num ("PASS_CHANGE_TRIES", 5); i > 0; i--) {
-		cp = getpass (_("New password: "));
+		cp = getpass (_(
+			"For security reasons, the password you type is invisible.\n
+			"New password: "));
 		if (NULL == cp) {
 			memzero (orig, sizeof orig);
 			memzero (pass, sizeof pass);
